@@ -9,7 +9,9 @@ if [ ! -f "${CI_PROJECT_DIR}/sonar-project.properties" ]; then
   exit 1
 fi
 
-SONAR_ANALYSIS_MODE="publish"
+if [ -z ${SONAR_ANALYSIS_MODE+x} ]; then
+  SONAR_ANALYSIS_MODE="preview"
+fi
 
 COMMAND="/root/sonar-scanner/bin/sonar-scanner -Dproject.settings=${CI_PROJECT_DIR}/sonar-project.properties -Dsonar.host.url=$SONAR_URL"
 

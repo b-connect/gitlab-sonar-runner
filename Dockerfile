@@ -1,12 +1,12 @@
 FROM anapsix/alpine-java
 
-ENV SONAR_SCANNER_VERSION 3.0.3.778
+ENV SONAR_SCANNER_VERSION 3.2.0.1227
 
-RUN apk add --update ca-certificates openssl curl
+RUN apk add --update ca-certificates openssl curl nodejs unzip
 
 WORKDIR /root
 
-RUN wget -O /root/sonar-scanner.zip https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
+RUN wget -O /root/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
 
 RUN unzip sonar-scanner.zip
 
